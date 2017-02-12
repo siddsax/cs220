@@ -8,9 +8,10 @@
 		li $v0, 5
 		syscall
 		
-		ble $s0, $zero, exit
+		
 		
 		move $s0, $v0
+		ble $s0, $zero, exit
 		subi $s1, $s0, 1
 		
 		li $t0, 0
