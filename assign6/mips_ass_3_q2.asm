@@ -8,6 +8,8 @@
 		li $v0, 5
 		syscall
 		
+		ble $s0, $zero, exit
+		
 		move $s0, $v0
 		subi $s1, $s0, 1
 		
