@@ -12,7 +12,7 @@
 		
 		move $s0, $v0
 		ble $s0, $zero, exit
-		subi $s1, $s0, 1
+		addi $s1, $s0, -1
 		
 		li $t0, 0
 
@@ -38,7 +38,7 @@
 	#substitute exit with print if you want to print the array
 	sortinit:
 		li $t0, 0
-		beq $t1, $s1, exit
+		beq $t1, $s1, print
 		
 		addi $t1, $t1, 1
 		
