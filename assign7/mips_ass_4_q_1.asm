@@ -4,18 +4,19 @@
 	
 .text
 	
-	li $v0, 5
-	syscall
+	main:
+		li $v0, 5
+		syscall
 	
-	move $s0, $v0
+		move $s0, $v0
 	
-	#li $v0, 1
-	#move $a0, $s0
-	#syscall
+		#li $v0, 1
+		#move $a0, $s0
+		#syscall
 	
-	move $t0, $zero
+		move $t0, $zero
 	
-	j input
+		j input
 	
 	input:
 		beq $t0, $s0, takelement
