@@ -102,6 +102,7 @@
 	loop2:
 		beq $a2, $s3, change1
 		move $a3, $zero
+		mtc1 $zero, $f6
 		j loop
 	
 	loop:
@@ -119,11 +120,7 @@
 
 		mul.d $f0, $f2, $f4
 		
-		mult $a1, $s3
-		mflo $t0
-		add $t0, $t0, $a2
-		sll $t1, $t0, 3
-		sdc1 $f0, array_3($t1)
+		add.d $f6, $f6, $f0
 		
 		addi $a3, $a3, 1
 		
@@ -131,6 +128,15 @@
 		
 		
 	change:
+	
+		mult $a1, $s3
+		mflo $t0
+		add $t0, $t0, $a2
+		sll $t1, $t0, 3
+		sdc1 $f6, array_3($t1)
+		
+		mtc1 $zero, $f6
+		
 		addi $a2, $a2, 1
 		j loop2
 		
@@ -183,4 +189,3 @@
 #	exit:
 		li $v0, 10
 		syscall
-		
