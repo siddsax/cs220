@@ -45,6 +45,7 @@
 
     mult $s2,$s3
     mflo $t1 # 32 least significant bits of multiplication t
+    li.d $f8, 0.0
 
     # counter
     li $t4 0
@@ -102,7 +103,7 @@
 	loop2:
 		beq $a2, $s3, change1
 		move $a3, $zero
-		mtc1 $zero, $f6
+		mov.d $f6,$f8
 		j loop
 	
 	loop:
@@ -117,16 +118,11 @@
 		add $t0, $t0, $a2
 		sll $t1, $t0, 3
 		ldc1 $f4, array_2($t1)
-
 		mul.d $f0, $f2, $f4
-		
-		add.d $f6, $f6, $f0
-		
+		add.d $f6, $f6, $f0		
 		addi $a3, $a3, 1
-		
 		j loop
-		
-		
+
 	change:
 	
 		mult $a1, $s3
@@ -135,7 +131,7 @@
 		sll $t1, $t0, 3
 		sdc1 $f6, array_3($t1)
 		
-		mtc1 $zero, $f6
+		mov.d $f6,$f8
 		
 		addi $a2, $a2, 1
 		j loop2
