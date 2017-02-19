@@ -86,7 +86,8 @@
 		sub $a2, $a2, 1
 		
 		j search		
-		
+	
+	#indexing from 1 to n
 	found:
 		beq $t0, $zero, print
 		
@@ -105,7 +106,7 @@
 		j found
 		
 	notFound:
-		move $a0, $zero
+		li $a0, -1
 		li $v0, 1
 		syscall
 		
