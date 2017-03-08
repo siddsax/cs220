@@ -1,7 +1,7 @@
 .data
-	array_1: .space 500
-	array_2: .space 500
-	array_3: .space 500
+	array_1: .space 200
+	array_2: .space 200
+	array_3: .space 200
 	R_num_1: .asciiz "Enter the row number first matrix number:\n "
 	C_num_1: .asciiz "Enter the column number first matrix number:\n"
 	R_num_2: .asciiz "Enter the row number second matrix number:\n "

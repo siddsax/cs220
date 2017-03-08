@@ -3,7 +3,7 @@
 	newline: .asciiz "\n"
 	
 .text
-	
+main:	
 	li $v0, 5
 	syscall
 	
@@ -57,15 +57,7 @@
 		srl $t0, $t0, 1
 		sll $t2, $t0, 2
 		
-		#move $t3, $a0
-		#move $a0, $t0
-		#li $v0, 1
-		#syscall
-		#la $a0, newline
-		#li $v0, 4
-		#syscall
-		#move $a0, $t3
-		
+
 		lw $t1, arr($t2)
 		
 		beq $t1, $a0, found
