@@ -1,0 +1,138 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1a520d0 .scope module, "test" "test" 2 2;
+ .timescale 0 0;
+v0x1a79c30_0 .var "a", 3 0;
+v0x1a79ce0_0 .var "b", 3 0;
+v0x1a79d90_0 .net "eq", 0 0, L_0x1a7ba30; 1 drivers
+S_0x1a502c0 .scope module, "two_bits" "bit_four_cmp" 2 5, 3 32, S_0x1a520d0;
+ .timescale 0 0;
+L_0x1a7ba30 .functor AND 1, L_0x1a7aa70, L_0x1a7b840, C4<1>, C4<1>;
+v0x1a79900_0 .net "A", 3 0, v0x1a79c30_0; 1 drivers
+v0x1a79980_0 .net "B", 3 0, v0x1a79ce0_0; 1 drivers
+v0x1a79a20_0 .net "e1", 0 0, L_0x1a7aa70; 1 drivers
+v0x1a79ad0_0 .net "e2", 0 0, L_0x1a7b840; 1 drivers
+v0x1a79bb0_0 .alias "eq", 0 0, v0x1a79d90_0;
+L_0x1a7ab20 .part v0x1a79c30_0, 2, 2;
+L_0x1a7ac10 .part v0x1a79ce0_0, 2, 2;
+L_0x1a7b8f0 .part v0x1a79c30_0, 0, 2;
+L_0x1a7b990 .part v0x1a79ce0_0, 0, 2;
+S_0x1a789c0 .scope module, "for_first" "bit_two_cmp" 3 37, 3 19, S_0x1a502c0;
+ .timescale 0 0;
+L_0x1a7aa70 .functor AND 1, L_0x1a79e40, L_0x1a7a420, C4<1>, C4<1>;
+v0x1a795c0_0 .net "A", 1 0, L_0x1a7ab20; 1 drivers
+v0x1a79680_0 .net "B", 1 0, L_0x1a7ac10; 1 drivers
+v0x1a79720_0 .net "e1", 0 0, L_0x1a79e40; 1 drivers
+v0x1a797a0_0 .net "e2", 0 0, L_0x1a7a420; 1 drivers
+v0x1a79880_0 .alias "eq2", 0 0, v0x1a79a20_0;
+L_0x1a7a2e0 .part L_0x1a7ab20, 1, 1;
+L_0x1a7a380 .part L_0x1a7ac10, 1, 1;
+L_0x1a7a890 .part L_0x1a7ab20, 0, 1;
+L_0x1a7a980 .part L_0x1a7ac10, 0, 1;
+S_0x1a79030 .scope module, "for_first" "bit_one_cmp" 3 24, 3 1, S_0x1a789c0;
+ .timescale 0 0;
+L_0x1a79e40 .functor OR 1, L_0x1a79f20, L_0x1a7a190, C4<0>, C4<0>;
+L_0x1a79f20 .functor AND 1, L_0x1a7a2e0, L_0x1a7a380, C4<1>, C4<1>;
+L_0x1a7a000 .functor NOT 1, L_0x1a7a2e0, C4<0>, C4<0>, C4<0>;
+L_0x1a7a0e0 .functor NOT 1, L_0x1a7a380, C4<0>, C4<0>, C4<0>;
+L_0x1a7a190 .functor AND 1, L_0x1a7a000, L_0x1a7a0e0, C4<1>, C4<1>;
+v0x1a79120_0 .net *"_s4", 0 0, L_0x1a7a000; 1 drivers
+v0x1a791e0_0 .net *"_s6", 0 0, L_0x1a7a0e0; 1 drivers
+v0x1a79280_0 .alias "eq", 0 0, v0x1a79720_0;
+v0x1a79320_0 .net "i0", 0 0, L_0x1a7a2e0; 1 drivers
+v0x1a793a0_0 .net "i1", 0 0, L_0x1a7a380; 1 drivers
+v0x1a79440_0 .net "p1", 0 0, L_0x1a79f20; 1 drivers
+v0x1a79520_0 .net "p2", 0 0, L_0x1a7a190; 1 drivers
+S_0x1a78ab0 .scope module, "for_sec" "bit_one_cmp" 3 25, 3 1, S_0x1a789c0;
+ .timescale 0 0;
+L_0x1a7a420 .functor OR 1, L_0x1a7a4d0, L_0x1a7a740, C4<0>, C4<0>;
+L_0x1a7a4d0 .functor AND 1, L_0x1a7a890, L_0x1a7a980, C4<1>, C4<1>;
+L_0x1a7a5b0 .functor NOT 1, L_0x1a7a890, C4<0>, C4<0>, C4<0>;
+L_0x1a7a690 .functor NOT 1, L_0x1a7a980, C4<0>, C4<0>, C4<0>;
+L_0x1a7a740 .functor AND 1, L_0x1a7a5b0, L_0x1a7a690, C4<1>, C4<1>;
+v0x1a78ba0_0 .net *"_s4", 0 0, L_0x1a7a5b0; 1 drivers
+v0x1a78c20_0 .net *"_s6", 0 0, L_0x1a7a690; 1 drivers
+v0x1a78cc0_0 .alias "eq", 0 0, v0x1a797a0_0;
+v0x1a78d60_0 .net "i0", 0 0, L_0x1a7a890; 1 drivers
+v0x1a78e10_0 .net "i1", 0 0, L_0x1a7a980; 1 drivers
+v0x1a78eb0_0 .net "p1", 0 0, L_0x1a7a4d0; 1 drivers
+v0x1a78f90_0 .net "p2", 0 0, L_0x1a7a740; 1 drivers
+S_0x1a4fd30 .scope module, "for_sec" "bit_two_cmp" 3 38, 3 19, S_0x1a502c0;
+ .timescale 0 0;
+L_0x1a7b840 .functor AND 1, L_0x1a7ad00, L_0x1a7b250, C4<1>, C4<1>;
+v0x1a78680_0 .net "A", 1 0, L_0x1a7b8f0; 1 drivers
+v0x1a78740_0 .net "B", 1 0, L_0x1a7b990; 1 drivers
+v0x1a787e0_0 .net "e1", 0 0, L_0x1a7ad00; 1 drivers
+v0x1a78860_0 .net "e2", 0 0, L_0x1a7b250; 1 drivers
+v0x1a78940_0 .alias "eq2", 0 0, v0x1a79ad0_0;
+L_0x1a7b110 .part L_0x1a7b8f0, 1, 1;
+L_0x1a7b1b0 .part L_0x1a7b990, 1, 1;
+L_0x1a7b660 .part L_0x1a7b8f0, 0, 1;
+L_0x1a7b750 .part L_0x1a7b990, 0, 1;
+S_0x1a780f0 .scope module, "for_first" "bit_one_cmp" 3 24, 3 1, S_0x1a4fd30;
+ .timescale 0 0;
+L_0x1a7ad00 .functor OR 1, L_0x1a7adb0, L_0x1a7afc0, C4<0>, C4<0>;
+L_0x1a7adb0 .functor AND 1, L_0x1a7b110, L_0x1a7b1b0, C4<1>, C4<1>;
+L_0x1a7ae60 .functor NOT 1, L_0x1a7b110, C4<0>, C4<0>, C4<0>;
+L_0x1a7af10 .functor NOT 1, L_0x1a7b1b0, C4<0>, C4<0>, C4<0>;
+L_0x1a7afc0 .functor AND 1, L_0x1a7ae60, L_0x1a7af10, C4<1>, C4<1>;
+v0x1a781e0_0 .net *"_s4", 0 0, L_0x1a7ae60; 1 drivers
+v0x1a782a0_0 .net *"_s6", 0 0, L_0x1a7af10; 1 drivers
+v0x1a78340_0 .alias "eq", 0 0, v0x1a787e0_0;
+v0x1a783e0_0 .net "i0", 0 0, L_0x1a7b110; 1 drivers
+v0x1a78460_0 .net "i1", 0 0, L_0x1a7b1b0; 1 drivers
+v0x1a78500_0 .net "p1", 0 0, L_0x1a7adb0; 1 drivers
+v0x1a785e0_0 .net "p2", 0 0, L_0x1a7afc0; 1 drivers
+S_0x1a3f490 .scope module, "for_sec" "bit_one_cmp" 3 25, 3 1, S_0x1a4fd30;
+ .timescale 0 0;
+L_0x1a7b250 .functor OR 1, L_0x1a7b300, L_0x1a7b510, C4<0>, C4<0>;
+L_0x1a7b300 .functor AND 1, L_0x1a7b660, L_0x1a7b750, C4<1>, C4<1>;
+L_0x1a7b3b0 .functor NOT 1, L_0x1a7b660, C4<0>, C4<0>, C4<0>;
+L_0x1a7b460 .functor NOT 1, L_0x1a7b750, C4<0>, C4<0>, C4<0>;
+L_0x1a7b510 .functor AND 1, L_0x1a7b3b0, L_0x1a7b460, C4<1>, C4<1>;
+v0x1a55540_0 .net *"_s4", 0 0, L_0x1a7b3b0; 1 drivers
+v0x1a77ce0_0 .net *"_s6", 0 0, L_0x1a7b460; 1 drivers
+v0x1a77d80_0 .alias "eq", 0 0, v0x1a78860_0;
+v0x1a77e20_0 .net "i0", 0 0, L_0x1a7b660; 1 drivers
+v0x1a77ed0_0 .net "i1", 0 0, L_0x1a7b750; 1 drivers
+v0x1a77f70_0 .net "p1", 0 0, L_0x1a7b300; 1 drivers
+v0x1a78050_0 .net "p2", 0 0, L_0x1a7b510; 1 drivers
+    .scope S_0x1a79030;
+T_0 ;
+    %end;
+    .thread T_0;
+    .scope S_0x1a78ab0;
+T_1 ;
+    %end;
+    .thread T_1;
+    .scope S_0x1a780f0;
+T_2 ;
+    %end;
+    .thread T_2;
+    .scope S_0x1a3f490;
+T_3 ;
+    %end;
+    .thread T_3;
+    .scope S_0x1a502c0;
+T_4 ;
+    %vpi_call 3 41 "$monitor", v0x1a79bb0_0;
+    %end;
+    .thread T_4;
+    .scope S_0x1a520d0;
+T_5 ;
+    %movi 8, 13, 4;
+    %set/v v0x1a79c30_0, 8, 4;
+    %movi 8, 13, 4;
+    %set/v v0x1a79ce0_0, 8, 4;
+    %end;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "bit_test.v";
+    "./bit_one_cmp.v";
