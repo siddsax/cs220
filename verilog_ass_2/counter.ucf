@@ -1,0 +1,12 @@
+# clock signal for .5 second high
+NET "clk" LOC = C9 | IOSTANDARD = LVCMOS33;
+NET "clk" PERIOD = 500000000.0ns HIGH 50%;
+
+NET "init<0>" LOC="L14";
+NET "init<1>" LOC="L13";
+NET "init<0>" LOC="N17";
+NET "init<1>" LOC="H18";
+NET "result<0>" LOC = F12 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "result<1>" LOC = E12 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "result<2>" LOC = E11 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "result<3>" LOC = F11 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
