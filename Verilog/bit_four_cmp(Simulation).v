@@ -29,7 +29,6 @@ module eq4(A3,B3,Equal3);
   output Equal3;
   wire Equal3;
   wire e3, e4;
-  initial begin
   eq2 p1( .A2(A3[3:2]), .B2(B3[3:2]), .Equal2(e3));
   eq2 p2( .A2(A3[1:0]), .B2(B3[1:0]), .Equal2(e4));
   assign Equal3 = (e3 & e4);
